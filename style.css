@@ -1,0 +1,316 @@
+*{
+  box-sizing: border-box
+  
+}
+
+body {
+   background: #4B0082;
+}
+
+/*Index Page Styling*/
+#fallingDiv{
+
+}
+
+#fallingDiv div {
+  position: relative;
+  display:inline-flex;
+  border-radius:50%;
+  border:1px solid blueviolet;
+  background: white;
+  height:30px;
+  width:30px;
+  justify-content: center;
+  align-items: center;
+  color: #4B0082;
+  z-index: 1
+
+}
+
+
+#C{
+  animation-name: falling;
+  animation-duration: 5s;
+  animation-iteration-count:1;
+  animation-timing-function: linear;
+  animation-fill-mode : forwards;
+  
+}
+# {
+  animation-delay: 500ms;
+  animation-name: falling;
+  animation-duration: 4s;
+  animation-iteration-count:infinite;
+  animation-timing-function: linear;
+}
+
+#welcome{
+  position: absolute;
+  margin:  auto;
+  color: white;
+  background-color:#82134B ;
+  font-size: 6vmin;
+  padding:2px;
+  text-align: center;
+  height: 35vh;
+  top:20vh;
+  border-radius:60%;
+  display: inline-flex;
+  align-items:center;
+}
+
+#playButton{
+  position: absolute;
+  display: inline-block;
+  margin:  auto;
+  top:30vh;
+  right: 0;
+  left: 0; 
+  bottom: 0;
+  background-color:#9B5685 ;
+  color: white;
+  height: 6vh;
+  width:45vw;
+  padding: 3px;
+  font-size: 6vw;
+  border-radius: 20%;
+  text-align: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: sans-serif;
+  
+}
+
+@keyframes falling{
+  
+  0% {
+    top: 0vh;
+  }
+  25% {
+    top: 20vh;
+  }
+  50% {
+    top: 45vh;
+  }
+  75% {
+   
+    top: 75vh;
+  }
+  80% {
+    top: 90vh;
+  }
+  90% {
+    top: 75vh;
+  }
+  100%{
+    top:90vh;
+    
+  }
+  
+}
+
+
+
+/*End of Index Page Styling*/
+
+/* 😁 😁 */
+  
+/*Quiz page styling*/
+#container{
+  background-color: none;
+  
+  min-height:100vh;
+  width:100%;
+  display:grid;
+  grid-template-rows: 50px 50px 7fr;
+  grid-row-gap: 10px;
+  
+}
+  
+/*Container grids*/
+
+ #instruction{
+   background-color: #7B1382;
+   font-size:20px;
+   color: white;
+   grid-row:1/2;
+   padding:5px;
+   justify-self: stretch;
+   align-self: center;
+   text-align: center;
+ }
+
+ #questionNumber{
+     background-color: #7B1382;
+     font-size:20px;
+     color: white;
+     grid-row:2/3;
+     padding:5px;
+     justify-self: stretch;
+     align-self: center;
+     text-align: left;
+
+ }
+ 
+ 
+  
+  #quizArea{
+    background-color: none;;
+    font-size:10vw;
+    grid-row:3/4 ;
+    display: grid;
+    grid-template-rows: 4fr,3fr,20px;
+    grid-row-gap: 10px;
+  }
+  
+  
+ /* #answerTracker{
+    background-color: #887889;
+    grid-row: 3/4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;*/
+   /* grid-template-columns: repeat(5,30px);
+    grid-column-gap: 5px;
+    justify-items: center;}*/
+    
+    
+  
+  /*Quiz area grids*/
+  #questionBox{
+    background-color: #370E56;
+    grid-row: 1/2;
+    justify-self: stretch;
+    border: 1px solid blueviolet;
+    text-align: center;
+    padding: 15px;
+    font-style: varela;
+    color: white;
+  }
+  #optionBoxes{
+  
+    grid-row: 2/3;
+     display: grid;
+     grid-template-rows: repeat(autofit, 4,1fr);
+     justify-items: stretch;
+     align-items: center ;
+     grid-row-gap: 10px;
+  }
+  #nextButtonRow
+  {
+    grid-row: 3/4;
+    display: grid;
+    grid-template-columns: (5fr,1fr);
+    grid-template-rows:repeat(autofill,1fr);
+    align-self: center;
+    background-color: #7B1382;
+    
+  }
+  
+  /*NextButtonRowGrids*/
+  
+  #answerTracker{
+    grid-column: 1/2;
+    grid-row: 1/3;
+    cursor: pointer;
+    outline: none;
+    justify-self: center;
+    display: inline-flex;
+    align-items: center;
+    
+  }
+  
+  #nextButton{
+    grid-column: 2/3;
+    grid-row: 1/3;
+    justify-self: end;
+    align-self: center;
+    text-align: center;
+    text-decoration: none;
+    font-family: sans-serif;
+    background-color: none;
+    
+    
+  }
+ button {
+border-radius: 20%;
+height:30px;
+width:60px;
+background-color:darkgoldenrod;
+color: white;
+outline: none;
+cursor: pointer;
+font-size: 6vw;
+display: block;
+
+  }
+  /*Option grids*/
+  
+  #option1,
+  #option2,
+  #option3,
+  #option4,
+  .options{
+    background-color: white;
+    border:2px solid royalblue;
+    padding:5px;
+    font-size: 17px;
+    cursor: pointer;
+  }
+  
+  .correct{
+    
+    animation-name:correct;
+    animation-duration:1s;
+    animation-timing-function:ease;
+    animation-fill-mode:forwards;
+    animation-iteration-count:1;
+  }
+  
+  @keyframes correct{
+    
+    100%{
+      background-color: green;
+      color: white;
+    }
+  }
+  
+  
+  .wrong {
+  
+    animation-name: wrong;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+  }
+  
+  @keyframes wrong {
+  
+    100% {
+      background-color: darkred;
+      color: white;
+    }
+  }
+  
+  .disabled{
+    pointer-events:none;
+  }
+  
+.score{
+height:30px;
+width:30px;
+cursor: pointer;
+background-color:white;
+margin-right: 10px;
+margin-top: 1px;
+margin-bottom: 1px;
+border-radius:50%;
+border:1px solid blueviolet;
+/*margin-left:10px;
+margin-top: 10px;*/
+}
+
