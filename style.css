@@ -46,17 +46,22 @@ body {
 
 #welcome{
   position: absolute;
+  display: inline-flex;
   margin:  auto;
   color: white;
-  background-color:#82134B ;
+  background-color:#7B1382 ;
   font-size: 6vmin;
+  font-style: varela;
   padding:2px;
   text-align: center;
-  height: 35vh;
+  height: 26vh;
+  width:100vw;
   top:20vh;
-  border-radius:60%;
-  display: inline-flex;
-  align-items:center;
+  right: 20vw;
+  left: 0;
+  border-radius:0%;
+
+ align-items:center;
 }
 
 #playButton{
@@ -67,7 +72,7 @@ body {
   right: 0;
   left: 0; 
   bottom: 0;
-  background-color:#9B5685 ;
+  background-color:#7B1382 ;
   color: white;
   height: 6vh;
   width:45vw;
@@ -157,7 +162,7 @@ body {
  
   
   #quizArea{
-    background-color: none;;
+    background-color:none;
     font-size:10vw;
     grid-row:3/4 ;
     display: grid;
@@ -206,7 +211,7 @@ body {
     grid-template-columns: (5fr,1fr);
     grid-template-rows:repeat(autofill,1fr);
     align-self: center;
-    background-color: #7B1382;
+    background-color: #4B0082;
     
   }
   
@@ -239,7 +244,7 @@ body {
 border-radius: 20%;
 height:30px;
 width:60px;
-background-color:darkgoldenrod;
+background-color:#7B1382;
 color: white;
 outline: none;
 cursor: pointer;
@@ -264,10 +269,11 @@ display: block;
   .correct{
     
     animation-name:correct;
-    animation-duration:1s;
+    animation-duration:2s;
     animation-timing-function:ease;
     animation-fill-mode:forwards;
     animation-iteration-count:1;
+    
   }
   
   @keyframes correct{
@@ -310,7 +316,21 @@ margin-top: 1px;
 margin-bottom: 1px;
 border-radius:50%;
 border:1px solid blueviolet;
-/*margin-left:10px;
-margin-top: 10px;*/
 }
 
+
+.scoreCorrect{
+  background-color: green;
+  background-image:url(correct.png) ;
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+}
+
+.scoreWrong {
+  background-color: red;
+  background-image: url(wrong.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+}

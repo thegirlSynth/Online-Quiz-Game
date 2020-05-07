@@ -1,8 +1,7 @@
 let options=document.querySelectorAll('.options')  
-
+let answerTrackerContainer=document.querySelector('#answerTracker')
 
 let currentQuestionNumber=document.querySelector('#currentQuestionNumber');
-
 let question=document.querySelector('#questionBox');
 
 let op1=document.querySelector('#option1');
@@ -12,7 +11,8 @@ let op4=document.querySelector('#option4');
 
 let questionIndex;
 let index=0;
-
+let myArray=[];
+let anotherArray=[];
 
 let questions=[
   {
@@ -64,30 +64,101 @@ function eventListener() {
    options.forEach(item=>{item.addEventListener('click',event=>{
     if (item.id == questions[questionIndex].answer) {
       item.classList.add('correct')
+      updateAnswerTracker('scoreCorrect')
+      
     }
     else { 
       item.classList.add('wrong')
+      updateAnswerTracker('scoreWrong')
+      
     };
- disabledOptions();
+ disableOptions();
  })  
  })
   
 }
  
-function disabledOptions() {
+function disableOptions() {
   for (let i = 0; i < options.length; i++) {
     options[i].classList.add('disabled');
+    if (options[i].id==questions[questionIndex].answer)
+     {
+       options[i].classList.add('correct')
+     }
   }
 }
+
+function enableOptions() {
+  for (let i = 0; i < options.length; i++) {
+    options[i].classList.remove('disabled','wrong','correct');
+  }}
+
   
 function randomQuestion(){
+  let duplicates=0;
   let randomNumber=Math.floor(Math.random()*questions.length);
-  questionIndex=randomNumber;
-  load();
+  if(index==questions.length){
+    alert('Game Over!')
+  }
+  else{
+  if(myArray.length>0){
+    for(let i=0;i<myArray.length;i++)
+    {if(myArray[i]==randomNumber){
+      duplicates==1;
+      break;
+    }
+    }
+    if(duplicates==1){
+      randomQuestion()
+    } 
+    else{
+      questionIndex=randomNumber;
+        load();
+        anotherArray.push(questionIndex);
+    }
+  }
+  
+  if(myArray.length==0){
+    questionIndex=randomNumber;
+    load();
+     anotherArray.push(questionIndex);
+  }
+  }
+  
+  myArray.push(randomNumber);
+  
 }
+
+function answerTracker(){
+  for (let i = 0; i < questions.length; i++){
+    const div=document.createElement('div')
+    answerTrackerContainer.appendChild(div).classList.add('score')
+  }
+}  
+
+function updateAnswerTracker(className){
+  answerTrackerContainer.children [index-1].classList.add(className);
+}
+
+function validate (){
+  if(!options[0].classList.contains('disabled')){
+    alert('Please, Select an Option!')
+}
+  else{
+    enableOptions()
+    randomQuestion()
+}
+}
+
+function next(){
+  validate()
+}
+
   
 window.onload=function(){
   randomQuestion()
+  answerTracker()
+  
 };
 
 //I forgive you, JS.
