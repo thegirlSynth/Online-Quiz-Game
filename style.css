@@ -5,13 +5,21 @@
 
 body {
    background: #4B0082;
+  
 }
 
-
-
+#wrapper{
+  display: grid;
+  grid-template-columns:1fr 4fr 1fr;
+  grid-gap: 30px;
+}
 /*Index Page Styling*/
-#fallingDiv{
 
+#fallingDiv{
+grid-area: 1/2;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
 }
 
 #fallingDiv div {
@@ -20,8 +28,8 @@ body {
   border-radius:50%;
   border:1px solid blueviolet;
   background: white;
-  height:30px;
-  width:30px;
+  height:35px;
+  width:35px;
   justify-content: center;
   align-items: center;
   color: #4B0082;
@@ -77,8 +85,9 @@ body {
 
 
 #welcome{
-  position: absolute;
-  display: inline-f8lex;
+  grid-area: 2/3;
+  position: relative;
+  display: inline-flex;
   margin: auto;
   color: white;
   background-color:#7B1382 ;
@@ -94,31 +103,33 @@ body {
   border-radius:0%;
   border: none;
  align-items:center;
+ opacity: 0;
 }
 
 #playButton{
+  grid-area: 3/4;
   position: absolute;
-  display: inline-block;
+  display: flex;
   margin:  auto;
-  top:30vh;
+  justify-content: center;
+  /*top:30vh*/
   right: 0;
-  left: 0; 
-  bottom: 0;
+  left: 0;
   background-color:#7B1382 ;
   color: white;
-  height: 6vh;
-  width:45vw;
+  max-height: 20vw;
+  width:30vw;
   padding: 3px;
-  font-size: 6vw;
-  border-radius: 20%;
-  text-align: center;
+  font-size: 25px;
   border: none;
   outline: none;
   cursor: pointer;
   text-decoration: none;
   font-family: sans-serif;
+  border: 1px solid green;
   
 }
+
 
 @keyframes falling{
   
