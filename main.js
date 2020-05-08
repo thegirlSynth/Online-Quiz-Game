@@ -49,7 +49,17 @@ let questions=[
     q: '"Opportunity is a haughty goddess who wastes no time with those who are unprepared." This was excerpted from a book. Which is it?',
     options: ['No Excuses', 'Animal Farm', 'Think and Grow Rich', 'The Richest Man in Babylon'],
     answer: 'option4'
-    }
+    },
+    {
+    q: 'Which of these books was written by Dr. Eggerich Emerson?',
+    options: ['Love and Respect', 'Sheet Music', 'Why you act the way you do', 'Every woman'],
+    answer: 'option1'
+   },
+   {
+    q: 'C. S. Lewis is a popular Christian author. What do his initials mean?',
+    options: ['Christian Stanley', 'Clive Staples', 'Christopher Smurt', 'Cinna Sydney'],
+    answer: 'option2'
+        },
   ];
 
 /*The function*/
@@ -101,7 +111,7 @@ function enableOptions() {
 function randomQuestion(){
   let duplicates=0;
   let randomNumber=Math.floor(Math.random()*questions.length);
-  if(index==questions.length){
+  if(index==5){
     quizOver();
   }
   else{
@@ -135,7 +145,7 @@ function randomQuestion(){
 }
 
 function answerTracker(){
-  for (let i = 0; i < questions.length; i++){
+  for (let i = 0; i < 5; i++){
     const div=document.createElement('div')
     answerTrackerContainer.appendChild(div).classList.add('score')
   }
@@ -166,9 +176,13 @@ function quizOver(){
 }
 
 function playAgain(){
+  document.activeElement.classList.add('click');
   window.location.reload()
 }
-  
+
+function click(){
+  document.activeElement.classList.add('click');
+}
 window.onload=function(){
   randomQuestion()
   answerTracker()
