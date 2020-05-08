@@ -4,6 +4,11 @@ let answerTrackerContainer=document.querySelector('#answerTracker')
 let currentQuestionNumber=document.querySelector('#currentQuestionNumber');
 let question=document.querySelector('#questionBox');
 
+let totalCorrectAnswers=document.querySelector('.totalCorrect');
+
+let percentage=document.querySelector('.percentage');
+
+
 let op1=document.querySelector('#option1');
 let op2=document.querySelector('#option2');
 let op3=document.querySelector('#option3');
@@ -13,6 +18,7 @@ let questionIndex;
 let index=0;
 let myArray=[];
 let anotherArray=[];
+let scores=0;
 
 let questions=[
   {
@@ -55,28 +61,26 @@ function load(){
   op3.innerHTML=questions[questionIndex].options[2];
   op4.innerHTML=questions[questionIndex].options[3];
   index++;
- eventListener()
+ 
 };
 
 
-function eventListener() {
-  //for (let i=0;i<questions.length;i++){ 
-   options.forEach(item=>{item.addEventListener('click',event=>{
-    if (item.id == questions[questionIndex].answer) {
-      item.classList.add('correct')
+function eventListener(element) {
+  
+    if (element.id == questions[questionIndex].answer) {
+      element.classList.add('correct')
       updateAnswerTracker('scoreCorrect')
-      
+      scores++;
     }
     else { 
-      item.classList.add('wrong')
+      element.classList.add('wrong')
       updateAnswerTracker('scoreWrong')
       
     };
  disableOptions();
- })  
- })
+ }
+ 
   
-}
  
 function disableOptions() {
   for (let i = 0; i < options.length; i++) {
@@ -98,13 +102,13 @@ function randomQuestion(){
   let duplicates=0;
   let randomNumber=Math.floor(Math.random()*questions.length);
   if(index==questions.length){
-    alert('Game Over!')
+    quizOver();
   }
   else{
   if(myArray.length>0){
     for(let i=0;i<myArray.length;i++)
     {if(myArray[i]==randomNumber){
-      duplicates==1;
+      duplicates=1;
       break;
     }
     }
@@ -118,15 +122,16 @@ function randomQuestion(){
     }
   }
   
+  
   if(myArray.length==0){
     questionIndex=randomNumber;
     load();
      anotherArray.push(questionIndex);
   }
-  }
+  
   
   myArray.push(randomNumber);
-  
+  }
 }
 
 function answerTracker(){
@@ -154,6 +159,15 @@ function next(){
   validate()
 }
 
+function quizOver(){
+  document.querySelector('.quizOver').classList.add('show');
+  totalCorrectAnswers.innerHTML=scores;
+  percentage.innerHTML=(scores/5)*100+"%!";
+}
+
+function playAgain(){
+  window.location.reload()
+}
   
 window.onload=function(){
   randomQuestion()
@@ -161,17 +175,9 @@ window.onload=function(){
   
 };
 
-//I forgive you, JS.
+//I forgive you, JS.😭😭
 
-//for (let i = 0; i < options.length; i++){
-  
- //options[i].addEventListener('click', function(){
- //  if option.[i]==
-   
-  // options[i].classList.toggle("correct");
-// })
-  
-//  };
+
   
   
 

@@ -22,17 +22,17 @@
     </div>
     
     <div id="optionBoxes">
-    <div id="option1" class="options"></div>
+    <div id="option1" class="options" onclick="eventListener(this)"></div>
     
-    <div id="option2" class="options" ></div>
+    <div id="option2" class="options" onclick="eventListener(this)" ></div>
     
-    <div id="option3" class="options" ></div> 
+    <div id="option3" class="options" onclick="eventListener(this)" ></div> 
     
-    <div id="option4" class="options" ></div>
+    <div id="option4" class="options" onclick="eventListener(this)" ></div>
     </div>
     
     <div id="nextButtonRow">
-      <a id="nextButton"><button onclick="next()">NEXT </button> </a>
+      <a id="nextButton"><button onclick="next()" class="nextButton">NEXT </button> </a>
       
       <div id="answerTracker">
          
@@ -41,11 +41,21 @@
       
     </div>
   </div>  
-  </div> <!--extra div
+  </div> 
+ 
  
   
+  <div class="quizOver">
+    <div class="alertBox">
+    <h1>
+      Not bad!<br>
+      You answered <span class="totalCorrect"> </span> questions correctly.<br>
+    That's <span class="percentage"></span>
+    </h1>
+    <button type="button" onclick="playAgain()">Play Again</button>
+    </div>
   </div>
--->
+  
 <script src="main.js"></script>
 </body>
 

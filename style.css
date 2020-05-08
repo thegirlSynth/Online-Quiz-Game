@@ -27,27 +27,57 @@ body {
 
 }
 
-
-#C{
+#C,#O1,#D,#E,#F,#L,#O2,#U,#R{
+  
   animation-name: falling;
   animation-duration: 5s;
   animation-iteration-count:1;
   animation-timing-function: linear;
   animation-fill-mode : forwards;
-  
 }
-# {
-  animation-delay: 500ms;
-  animation-name: falling;
-  animation-duration: 4s;
-  animation-iteration-count:infinite;
+
+
+#C{
   animation-timing-function: linear;
 }
+#O1 {
+  animation-timing-function: ease-in;
+  animation-delay: 200ms;
+}
+#D {
+  animation-delay: 400ms;
+}
+#E {
+  animation-delay: 600ms;
+  animation-timing-function: linear;
+}
+#F {
+  animation-delay: 800ms;
+  animation-timing-function: ease-out;
+}
+#L {
+  animation-delay: 1s;
+  animation-timing-function: ease-in;
+}
+#O2 {
+  animation-delay: 1.2s;
+}
+#U {
+  animation-delay: 1.4s;
+  animation-timing-function: linear;
+}
+#R {
+  animation-delay: 1.6s;
+  animation-timing-function: ease-in-out;
+}
+
+
+
 
 #welcome{
   position: absolute;
-  display: inline-flex;
-  margin:  auto;
+  display: inline-f8lex;
+  margin: auto;
   color: white;
   background-color:#7B1382 ;
   font-size: 6vmin;
@@ -60,7 +90,7 @@ body {
   right: 20vw;
   left: 0;
   border-radius:0%;
-
+  border: none;
  align-items:center;
 }
 
@@ -240,7 +270,7 @@ body {
     
     
   }
- button {
+ .nextButton{
 border-radius: 20%;
 height:30px;
 width:60px;
@@ -333,4 +363,49 @@ border:1px solid blueviolet;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 50%;
+}
+
+
+.quizOver{
+  position: fixed;
+  left: 0;
+  top:0;
+  width:100%;
+  height:100%;
+  background-color:rgba(0 0 0 0.7) ;
+  z-index: 10;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.quizOver.show{
+  display: flex;
+}
+
+.quizOver .alertBox{
+ background-color:#370E56;
+ padding: 30px;
+ border-radius: 10px;
+ text-align: center;
+ flex-basis: 700px;
+ max-width: 700px;
+ color: #ffffff;
+}
+
+.quizOver .alertBox h1{
+  font-size: 36px;
+  margin: 0 0 20px;
+}
+
+.quizOver .alertBox button{
+  padding:15px 50px;
+  border: none;
+  outline: none;
+  background-color:white;
+  border-radius:5px ;
+  font-size: 20px;
+  margin: 15px 0 20px;
+  color:#7B1382;
 }
